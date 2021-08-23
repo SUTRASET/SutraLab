@@ -105,6 +105,11 @@ classdef inpObj <handle
     tcmin 
     tcmax 
 
+    schnam_2
+    schtyp_2
+    islist_2
+    nslist_2
+
     % ---------------##  DATASET 7:  Iteration and Matrix Solver Controls
     itrmax 
     rpmax 

@@ -45,8 +45,17 @@ fprintf(fid,'##\n');
 fprintf(fid,'##  DATASET 6:  TEMPORAL CONTROL AND SOLUTION CYCLING DATA\n');
 fprintf(fid,'##\t[NSCH]\t\t[NPCYC]\t\t[NUCYC]\n');
 fprintf(fid,'\t%d\t\t%d\t\t%d\n',o.nsch,o.npcyc,o.nucyc);
-fprintf(fid,'## [SCHNAM]\t[SCHTYP]\t[CREFT]\t\t[SCALT]\t\t[NTMAX]\t\t[TIMEI]\t\t[TIMEL]\t\t[TIMEC]\t\t[NTCYC]\t\t[TCMULT]\t[TCMIN]\t[TCMAX]\n');
+fprintf(fid,'## [SCHNAM]\t\t[SCHTYP]\t\t[CREFT]\t\t[SCALT]\t\t[NTMAX]\t\t[TIMEI]\t\t[TIMEL]\t\t[TIMEC]\t\t[NTCYC]\t\t[TCMULT]\t[TCMIN]\t[TCMAX]\n');
 fprintf(fid,'''%s''\t''%s''\t''%s''\t%d\t\t%d\t\t%d\t\t%.4E\t%d\t\t%d\t\t%.4E\t%.4E\t%.4E\n',o.schnam,o.schtyp,o.creft,o.scalt,o.ntmax,o.timei,o.timel,o.timec,o.ntcyc,o.tcmult,o.tcmin,o.tcmax);
+% second line of time schedule
+if o.nsch==2
+    if strcmpi(o.schtyp_2,'STEP LIST')
+        islist_str=regexprep(num2str( o.islist_2  ),'\s+','     ');
+        fprintf(fid,'## [SCHNAM]\t\t[SCHTYP]\t\t[CREFT]\t\t[NSLIST]\t\t[ISLIST]\n');
+        fprintf(fid,' ''%s'' \t''%s''\t\t %d \t\t%s\n',o.schnam_2,o.schtyp_2,o.nslist_2,islist_str);
+    end
+end
+
 fprintf(fid,'''-''\n');
 
 

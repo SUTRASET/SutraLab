@@ -49,14 +49,14 @@ classdef ConstantObj <handle
 
   methods    % seems that all functions in methods needs to be called.
     function o=ConstantObj(varargin)
-    o.ms2mmday=3600*24*1000;
+    o.ms2mmday=3600*24*1000.;
     o.kelvin=273.15;
     o.mm2m=0.001;
-    o.m2mm=1000;
-    o.rhow_pure_water=1000;
-    o.g=9.8;
-    o.second2day=1/3600/24;
-    o.kg2g=1000;
+    o.m2mm=1000.;
+    o.rhow_pure_water=1000.;
+    o.g=9.81;
+    o.second2day=1./3600/24;
+    o.kg2g=1000.;
     o.g2kg=0.001;
     o.psim_log_range=-[0.0001:0.0001:0.001,0.002:0.001:0.01,0.02:0.01:0.1,0.2:0.1:1,2:1:10,20:10:100,200:100:1000,2000:1000:10000,20000:10000:1e5...
     	,2e5:1e5:1e6,2e6:1e6:9e6,1e7:1e7:9e7,1e8:1e8:9e8];
@@ -66,7 +66,7 @@ classdef ConstantObj <handle
     o.R =8.314;
 
     o.mol_weight_nacl_kgPmol=0.0585;
-    o.density_solid_nacl_kgPm3=2160;
+    o.density_solid_nacl_kgPm3=2160.;
 
     o.psych=62.2;  % pa/K  # https://en.wikipedia.org/wiki/Psychrometric_constant
     o.molecular_weight_water=0.018;
