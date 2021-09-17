@@ -34,6 +34,9 @@ classdef ConstantObj <handle
     msecPsec
     secPday
     dayPsec
+    MLPL
+    MLPM3
+    tonPkg
   end
   
   
@@ -85,7 +88,9 @@ classdef ConstantObj <handle
     o.msecPsec=1000;
     o.secPday=86400;
     o.dayPsec=1/86400;
-
+    o.MLPL=1000000;
+    o.MLPM3=1e3;
+    o.tonPkg=1e3;
 %!      TSK   -- TEMPERATURE AT THAT NODE
 %!     TS   -- SOIL TEMPERATURE [CELSIUS]
 %!     STM  -- MOLECULAR WEIGHT OF NACL [KG/MOL]

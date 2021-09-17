@@ -8,7 +8,7 @@ function o=export_to_file(o,varargin)
     % this subfunction gets the delta y, when meshtype is 2D and regular
     
     %[o.fname,  varargin] = getProp(varargin,'file_name',o.fname);
-    
+   
     fid = fopen(o.uname,'wt');
     
     fprintf('Writting to file %s\n', o.uname);
@@ -30,12 +30,16 @@ function o=export_to_file(o,varargin)
         if o.terms.data(i).nsop1 ~=0
             fprintf(fid, '# Dataset 3-%i: fluid sources/sinks\n',i);
             fprintf(fid, '## # [IQCP1] [QINC1]     [UINC1] \n');
-    
-            temp=[o.terms.data(i).iqcp1,o.terms.data(i).qinc1,o.terms.data(i).uinc1];
-    
-            dataset3_str=sprintf('\t%d\t\t%+E\t%+E\n',temp');
-            dataset3_str=[dataset3_str,'00000000000000000000000000000000000000000000000000\n'];
-            fprintf(fid, dataset3_str);
+            dataset3_str=strings;
+            for j=1:length(o.terms.data(i).iqcp1)
+                temp=[o.terms.data(i).iqcp1(j),o.terms.data(i).qinc1(j),o.terms.data(i).uinc1(j)];
+                dataset3_str=sprintf('\t%d\t\t%+E\t%+E\n',temp');
+                fprintf(fid, dataset3_str');
+            end
+%             dataset3_str=[dataset3_str,'00000000000000000000000000000000000000000000000000\n'];
+%             a=dataset3_str{1:end}
+            fprintf(fid, '00000000000000000000000000000000000000000000000000\n');
+%             clear dataset3_str;
         end
     end
     fclose(fid);
