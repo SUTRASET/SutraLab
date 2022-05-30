@@ -340,9 +340,9 @@ classdef inpObj <handle
         tmp         = textscan(strprc,'%s %s %s %f %f %f');
         o.mshtyp(1) = tmp{1};
         o.mshtyp(2) = tmp{2};
-        o.nn1       = tmp{4};
+        o.nn1       = tmp{6};
         o.nn2       = tmp{5};
-        o.nn3       = tmp{6};
+        o.nn3       = tmp{4};
 	% get relationships
 	    for n = 1:o.ktype(1)
             strprc = getNextLine(fn,'criterion','without','keyword','#','ignoreblankline','yes');
@@ -668,7 +668,7 @@ classdef inpObj <handle
         [o.pmaxfa,o.pmidfa,o.pminfa,o.ang1fa,o.ang2fa,o.ang3fa,o.almaxf ...
            ,o.almidf,o.alminf,o.atmaxf,o.atmidf,o.atminf]=deal(tmp{1:12});
         tmp=textscan(o.inp.dataset15b,'%*f %f %f %f %f %f %f %f %f %f %f %f %f %f ') ;
-        [ o.lreg,o.pmax,o.pmid,o.pmin,o.angle2,o.angle2,o.angle3,o.almax,o.almid,o.almin ]=deal(tmp{1:11});
+        [ o.lreg,o.pmax,o.pmid,o.pmin,o.angle1,o.angle2,o.angle3,o.almax,o.almid,o.almin ]=deal(tmp{1:11});
       end
 
       % ---------------       DATASET 17   -------------------------

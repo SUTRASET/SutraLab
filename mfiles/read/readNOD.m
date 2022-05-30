@@ -58,9 +58,9 @@ function [o,o2]=readNOD(varargin)
   % how to realize this by one-liner
   %  [o2.mshtyp{1} o2.mshtyp{2} ] = deal(tmp{1:2}{1});
     [o2.nn1,o2.nn2,o2.nn,o2.ne ]    = deal(tmp{4:7});
-  elseif strcmp(o2.mshtyp{1},'3-D') && strcmp(o2.mshtyp{2},'BLOCKWISE')
+  elseif strcmp(o2.mshtyp{1},'3-D') && strcmp(o2.mshtyp{2},'REGULAR')
     tmp=textscan(tmp,'%s %s %s %f %f %f %f %*s %f %*s');
-    [o2.nn1,o2.nn2,o2.nn3,o2.nn,o2.ne ]    = deal(tmp{4:8});
+    [o2.nn3,o2.nn2,o2.nn1,o2.nn,o2.ne ]    = deal(tmp{4:8});
   end
   % ---------------- parsing the number of results    ------------------------
   tmp = getNextLine(fn,'criterion','with','keyword',...

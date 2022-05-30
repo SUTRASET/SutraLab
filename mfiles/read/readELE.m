@@ -45,9 +45,10 @@ function [o,o2] = readELE(varargin)
                          'with','keyword','## ','operation','delete');
   o2.title2 = getNextLine(fn,'criterion',...
                          'with','keyword','## ','operation','delete');
-
+ 
   % ---------------- Parsing the line with node, element info-----------------
   o2.MeshInfo =getNextLine(fn,'criterion','equal','keyword','## ');
+  o2.MeshInfo(1)
   if strcmpi(o2.MeshInfo(4:6),'2-D')
     tmp=regexprep(o2.MeshInfo,{'#','(',')','\,','*','='},{'','','','','',''});
     tmp=textscan(tmp,'%s %s %s %f %f %f %*s %f %*s');
